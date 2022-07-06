@@ -4,7 +4,6 @@
 Clone the repository and run the following commands
 
 ```sh
-cd Downloads
 cd ssp-2
 npm install
 npm run prod
