@@ -1,14 +1,15 @@
 
 Clone the repository and run the following commands
 
-cd booking-x-apiit
-npm install
-npm run prod
-php artisan db:wipe
-php artisan migrate
-php artisan db:seed
-php artisan serve
-
+<ul>
+<li>cd booking-x-apiit</li>
+<li>npm install</li>
+<li>npm run prod</li>
+<li>php artisan db:wipe</li>
+<li>php artisan migrate</li>
+<li>php artisan db:seed</li>
+<li>php artisan serve</li>
+<ul>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
