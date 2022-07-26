@@ -11,8 +11,8 @@ class Hotel extends Model
     use HasFactory, SoftDeletes;
 
     protected  $attributes = [
-        'sort-order' => 0,
-        'status'  => 0
+        'sort_order' => 0,
+        'status' => 1
     ];
 
     protected  $fillable = [
