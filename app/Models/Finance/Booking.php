@@ -11,12 +11,10 @@ class Booking extends Model
     use HasFactory, SoftDeletes;
 
     protected  $attributes = [
-        'sort-order' => 0,
         'status'  => 0
     ];
 
     protected  $fillable = [
-        'sort-order',
         'status'
     ];
 
