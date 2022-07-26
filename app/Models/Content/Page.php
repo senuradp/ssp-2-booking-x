@@ -16,6 +16,10 @@ class Page extends Model
     ];
 
     protected  $fillable = [
+        'title',
+        'url',
+        'summary',
+        'content',
         'sort-order',
         'status'
     ];
