@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SSP2BookingX;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -21,8 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(SSP2BookingX $ssp2BookingX)
     {
+        resolve('SSP2BookingX')->setUrl('home');
+        // dd($ssp2BookingX);
         return view('home');
     }
 }

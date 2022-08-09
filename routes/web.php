@@ -19,7 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dev', function () {
-    dd('dev');
+    dd(resolve('SSP2BookingX'));
+    // debug((request()->all()));
+    // dd(app(), resolve('view'));
+    // $user = (new \App\Models\Auth\User)->first();
+    // dd($user);
+    // debug($user);
+    // dd('dev');
 });
 
 
