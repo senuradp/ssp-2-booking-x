@@ -47,7 +47,7 @@ class Role
 
 
         // industry code
-
+            // if the role is null throw an exception
             if($role === null){
                 throw new \InvalidArgumentException('The $role argument is required');
             }
