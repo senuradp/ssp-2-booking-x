@@ -19,7 +19,12 @@ class Role
      // allows to create an dpass more arguments into the handle method
      // request is the current request of the system
      // Closure method which will return as the method so the reuqest can be modified
-    public function handle(Request $request, Closure $next, string $role = 'user')
+
+    //  student code
+    //  public function handle(Request $request, Closure $next, string $role = 'user')
+
+    // industry code
+    public function handle(Request $request, Closure $next, ?string $role = null)
     {
         // in the role.php file in the handlwe fucntion we set the default role as user.
         // in the admin.php in middleware  the 2 params are the auth and the role middleware witht the admin parameter
@@ -42,6 +47,11 @@ class Role
 
 
         // industry code
+
+            if($role === null){
+                throw new \InvalidArgumentException('The $role argument is required');
+            }
+
         // passed to the user model in auth/User.php
             if(!$request->user() || !$request->user()->hasRole($role)){
                 return abort(403, 'Unauthorized action');

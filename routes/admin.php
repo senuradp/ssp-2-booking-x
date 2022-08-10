@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' =>'admin',
+    // student code
+    // 'middleware' => ['auth','role:admin'],
+    // industry code
     'middleware' => ['auth','role:admin'],
 ],function(){
     //Dashboard
