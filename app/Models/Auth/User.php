@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable
 {
@@ -53,4 +54,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'settingd' => 'array'
     ];
+
+    /**
+     * Check the user has the role.
+     *
+     * @var array<string, string>
+     */
+    //check for the validaition of the user.
+    public function scopeHasRole(Builder $builder, string $role){
+        $this->role === $role;
+    }
 }
