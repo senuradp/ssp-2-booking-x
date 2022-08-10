@@ -21,6 +21,12 @@ class Role
      // Closure method which will return as the method so the reuqest can be modified
     public function handle(Request $request, Closure $next, string $role = 'user')
     {
+        // in the role.php file in the handlwe fucntion we set the default role as user.
+        // in the admin.php in middleware  the 2 params are the auth and the role middleware witht the admin parameter
+        // in the role.php we check if the user has the role that we sent and the role is admin ,
+        // if we havent set it as admin it is going to be user since it is the default value
+        //  the default value is taken if we have not ent the value
+
         // dd(auth()->user(), $request->user());
         // dd($request,$role);
         // return $next($request);
