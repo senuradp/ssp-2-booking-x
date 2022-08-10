@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Auth\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //gate for admin, this can be used throughtout the application
+        //allow or deny access to a specific modal
+        Gate::define('accessAdmin', function (User $user) {
+            // dd($user->role);
+            return $user->role === 'admin';
+        });
     }
 }

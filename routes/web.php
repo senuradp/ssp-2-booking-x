@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Gate;
+// use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/dev', function () {
-    dd(resolve('SSP2BookingX'));
+
+    dd(Gate::allows('admin'));
+    // dd(resolve('SSP2BookingX'));
     // debug((request()->all()));
     // dd(app(), resolve('view'));
     // $user = (new \App\Models\Auth\User)->first();
