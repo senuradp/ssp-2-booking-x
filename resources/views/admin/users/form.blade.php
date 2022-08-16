@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            Model List !
+            Model View !
         </div>
     </div>
 </div>
