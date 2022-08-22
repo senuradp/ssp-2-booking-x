@@ -15,7 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = (new Category())
+            ->newQuery()
+            ->paginate(10);
+        return view(('admin.categories.index'),['categories' => $categories]);
     }
 
     /**

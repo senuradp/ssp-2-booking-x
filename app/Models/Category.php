@@ -20,7 +20,7 @@ class Category extends Model
         'url',
         'summary',
         'content',
-        'sort-order',
+        'sort_order',
         'status'
     ];
 
