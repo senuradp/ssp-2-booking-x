@@ -17,10 +17,10 @@
                     </div>
                     <div class="row mb-2">
                         <div class="col-md-6">
-                            <x-form-input id="password" name="password" label="Password" type="password" help="Password" required = "true"/>
+                            <x-form-input id="password" name="password" label="Password" type="password" help="Password"  required/>
                         </div>
                         <div class="col-md-6">
-                            <x-form-input id="password_confirmation" name="password_confirmation" label="Confirm Password" type="password" help="Confirm Password" required = "true"/>
+                            <x-form-input id="password_confirmation" name="password_confirmation" label="Confirm Password" type="password" help="Confirm Password"  required/>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -58,6 +58,10 @@
                         <div class="col-md-6">
                             <x-form-input id="zip" name="zip" label="Zip" type="text" value="{{ $user->zip }}" help="Zip"/>
                         </div>
+                    </div>
+
+                    <div class="row">
+                        <x-form-select id="role" name="role" label="Role" value="{{ $user->role }}" help="User Role" placeholder="User Role" :options="['admin','user','manager']"/>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
