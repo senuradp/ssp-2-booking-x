@@ -1,4 +1,4 @@
-# SSP 2 Booking system presumably
+# SSP 2 Booking system
 ## Hotel Boking Core System to be built with laravel
 
 Clone the repository and run the following commands
