@@ -8,6 +8,12 @@
             <div class="col-md-8 bg-white p-4">
                 <form>
                     <div class="row">
+                        <div class="col-12">
+                            <h3>Authentication details</h3>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6">
                             <x-form-input id="name" name="name" label="Name" type="text" value="{{ $user->name }}" help="Username"/>
                         </div>
@@ -23,25 +29,36 @@
                             <x-form-input id="password_confirmation" name="password_confirmation" label="Confirm Password" type="password" help="Confirm Password"  required/>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Personal details</h3>
+                        </div>
+                        <hr>
                     </div>
-                    <div class="mb-3">
-                        <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name"/>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <x-form-input id="first_name" name="first_name" label="First Name" type="text" value="{{ $user->first_name }}" help="First Name"/>
+                            </div>
+                            <div class="col-md-6">
+                                <x-form-input id="last_name" name="last_name" label="Last Name" type="text" value="{{ $user->last_name }}" help="Last Name"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <x-form-input id="phone" name="phone" label="Phone" type="text" value="{{ $user->phone }}" help="Phone"/>
-                        </div>
-                        <div class="col-md-6">
-                            <x-form-input id="role" name="role" label="Role" type="text" value="{{ $user->role }}" help="Role"/>
                         </div>
                     </div>
                     <div class="mb-3">
                         <x-form-input id="address" name="address" label="Address" type="text" value="{{ $user->address }}" help="Address"/>
                     </div>
-                    <div class="mb-3">
-                        <x-form-input id="nic" name="nic" label="NIC" type="text" value="{{ $user->nic }}" help="NIC"/>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <x-form-input id="nic" name="nic" label="NIC" type="text" value="{{ $user->nic }}" help="NIC"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -61,8 +78,20 @@
                     </div>
 
                     <div class="row">
-                        <x-form-select id="role" name="role" label="Role" value="{{ $user->role }}" help="User Role" placeholder="User Role" :options="['admin','user','manager']"/>
+                        <div class="col-12">
+                            <h3>User Role</h3>
+                        </div>
+                        <hr>
                     </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
+                                <x-form-select id="role" name="role" label="Role" value="{{ $user->role }}" help="User Role" placeholder="User Role" :options="['admin','user','manager']"/>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
