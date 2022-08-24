@@ -78,9 +78,25 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            "name" => "required|string|max:255",
+            "email" => "required|string|email|max:255|unique:users,email," . $user->id,
+            "password" => "nullable|string|min:6|confirmed",
+            "password_confirmation" => "nullable|string|min:6",
+            "first_name" => "required|string|max:255",
+            "last_name" => "required|string|max:255",
+            "phone" => "required|string|max:12",
+            "address" => "required|string|max:255",
+            "nic" => "required|string|max:12",
+            "country" => "required|string|max:255",
+            "city" => "required|string|max:255",
+            "state" => "required|string|max:255",
+            "zip" => "required|string|max:255",
+            "role" => "required",
+        ]);
+        // dd($request, $user);
     }
 
     /**

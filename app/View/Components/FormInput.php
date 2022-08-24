@@ -1,7 +1,7 @@
 <?php
 
 namespace App\View\Components;
-
+use Illuminate\Support\ViewErrorBag;
 use Illuminate\View\Component;
 
 class FormInput extends Component
