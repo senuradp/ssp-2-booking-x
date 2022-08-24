@@ -7,9 +7,12 @@
         <div class="row justify-content-center">
 
             <div class="col-md-8 bg-white p-4">
-                <form action="{{ route('users.update', $user->id) }}" method="POST">
+                <form action="{{ $user->id ? route('users.update', $user->id) : route('users.store') }}" method="POST">
 
-                    @method('PUT')
+                    {{-- if user has an id --}}
+                    @if ($user->id)
+                        @method('PUT')
+                    @endif
 
                     @csrf
                     <div class="row">
@@ -110,8 +113,13 @@
                     </div>
 
 
+                    @if ($user->id)
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    @else
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    @endif
 
-                    <button type="submit" class="btn btn-primary">Update</button>
+
                 </form>
             </div>
         </div>

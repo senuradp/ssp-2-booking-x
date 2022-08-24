@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Auth\User;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -35,7 +36,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.form');
+        return view('admin.users.form', ['user' => new User()]);
     }
 
     /**
@@ -46,7 +47,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return view('admin.users.show');
+        // return view('admin.users.show');
+        $validated = $request->validate([
+            "name" => "required|string|max:255",
+            "email" => "required|string|email|max:255|unique:users",
+            "password" => ['required', 'confirmed', Password::min(8)],
+            "first_name" => "required|string|max:255",
+            "last_name" => "required|string|max:255",
+            "phone" => "required|string|max:12",
+            "address" => "required|string|max:255",
+            "nic" => "required|string|max:12",
+            "country" => "required|string|max:255",
+            "city" => "required|string|max:255",
+            "state" => "required|string|max:255",
+            "zip" => "required|string|max:255",
+            "role" => "required",
+        ]);
+
+        // check if the password is not empyty and if it is then hash it
+        if (!is_null($validated['password'])) {
+            $validated['password'] = bcrypt($request->password);
+        }else{
+            unset($validated['password']);
+        }
+        $user = (new User())->create($validated);
+        return redirect()->route('users.index')->with('success', 'User ' .$user->first_name. ' created successfully');
+
     }
 
     /**
@@ -80,11 +106,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $request->validate([
+        $validated = $request->validate([
             "name" => "required|string|max:255",
             "email" => "required|string|email|max:255|unique:users,email," . $user->id,
-            "password" => "nullable|string|min:6|confirmed",
-            "password_confirmation" => "nullable|string|min:6",
+            // "password" => ["nullable", "confirmed", Password::min(8)->mixedCase()],
+            "password" => ['nullable', 'confirmed', Password::min(8)],
             "first_name" => "required|string|max:255",
             "last_name" => "required|string|max:255",
             "phone" => "required|string|max:12",
@@ -96,6 +122,17 @@ class UserController extends Controller
             "zip" => "required|string|max:255",
             "role" => "required",
         ]);
+
+        // check if the password is not empyty and if it is then hash it
+        if (!is_null($validated['password'])) {
+            $validated['password'] = bcrypt($request->password);
+        }else{
+            unset($validated['password']);
+        }
+
+        //update user
+        $user->update($validated);
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
         // dd($request, $user);
     }
 

@@ -53,54 +53,54 @@
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Authentication</small>
 
-                                            <a class="dropdown-item" href="{{ route('users.index') }}">
-                                                Users
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('users.index') }}">
+                                            Users
+                                        </a>
 
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Content</small>
 
-                                            <a class="dropdown-item" href="{{ route('pages.index') }}">
-                                                Pages
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('categories.index') }}">
-                                                Categories
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('pages.index') }}">
+                                            Pages
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('categories.index') }}">
+                                            Categories
+                                        </a>
 
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Booking & Reservations</small>
 
-                                            <a class="dropdown-item" href="{{ route('bookings.index') }}">
-                                                Bookings
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('bookings.index') }}">
+                                            Bookings
+                                        </a>
 
                                         <div class="dropdown-divider"></div>
                                         <small class="d-block ps-2">Hotel</small>
 
 
-                                            <a class="dropdown-item" href="{{ route('hotels.index') }}">
-                                                Hotels
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('facilities.index') }}">
-                                                Facilities
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('dinings.index') }}">
-                                                Dinings
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('accomodations.index') }}">
-                                                Accomodations
-                                            </a>
-                                            <a class="dropdown-item" href="{{ route('experiences.index') }}">
-                                                Experiences
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('hotels.index') }}">
+                                            Hotels
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('facilities.index') }}">
+                                            Facilities
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('dinings.index') }}">
+                                            Dinings
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('accomodations.index') }}">
+                                            Accomodations
+                                        </a>
+                                        <a class="dropdown-item" href="{{ route('experiences.index') }}">
+                                            Experiences
+                                        </a>
 
-                                            <a class="dropdown-item" href="{{ route('packages.index') }}">
-                                                Packages
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('packages.index') }}">
+                                            Packages
+                                        </a>
 
-                                            <a class="dropdown-item" href="{{ route('promotions.index') }}">
-                                                Promotions
-                                            </a>
+                                        <a class="dropdown-item" href="{{ route('promotions.index') }}">
+                                            Promotions
+                                        </a>
 
                                     </div>
                                 </li>
@@ -150,6 +150,25 @@
         </nav>
 
         <main class="py-4">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+
             @yield('content')
         </main>
     </div>

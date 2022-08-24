@@ -8,6 +8,11 @@
         {{-- <div class="col-md-8">
             Model List
         </div> --}}
+        <div class="col-12">
+            <a href="{{ route('users.create') }}" class="btn btn-primary">
+                Add User
+            </a>
+        </div>
         <div class="col-md-8 bg-white ">
             {{-- : to identify the content within the quotation as a dynamic attribute / executable content --}}
             <x-model-list :columns="[
